@@ -21,21 +21,21 @@ User can either download the binary exectuable files we compiled, or compile thi
 Download Binary Exectuable Files in Linux, Windows and Mac OS without installation.
 Please download executable binary file
 
-- [Linux](https://vis.nucleome.org/static/dist/current/linux/cnbData)
-- [Windows](https://vis.nucleome.org/static/dist/current/win64/cnbData.exe)
-- [MacOS](https://vis.nucleome.org/static/dist/current/mac/cnbData)
+- [Linux](https://vis.nucleome.org/static/dist/current/linux/nucleserver)
+- [Windows](https://vis.nucleome.org/static/dist/current/win64/nucleserver.exe)
+- [MacOS](https://vis.nucleome.org/static/dist/current/mac/nucleserver)
 
 And change the mode of this file into executable.
 
 In Linux or Mac OS, this can be done in a terminal, using command `chmod`.
 
 ```shell
-chmod 755 cnbData
+chmod 755 nucleserver
 ```
 
 ### Compile Source Code
 ```
-go get -u github.com/nimezhu/cnbdata
+go get -u github.com/nucleome/nucleserver
 ```
 
 ## Quick Start 
@@ -44,11 +44,11 @@ Start a Data Server
 
 in Mac OS or Linux
 ```shell
-./cnbData start -i [google sheet id or excel file] -p [port default:8611]
+./nucleserver start -i [google sheet id or excel file] -p [port default:8611]
 ```
 in Windows 
 ```shell
-cnbData.exe start -i [google sheet id or excel file] -p [port default:8611]
+nucleserver.exe start -i [google sheet id or excel file] -p [port default:8611]
 ```
 
 If you are using Windows and not familiar with runnning command line tool in Windows, please read [this article](https://www.computerhope.com/issues/chusedos.htm) first. Then,you can run `cnbData` as a command line tool in terminal.
@@ -58,16 +58,16 @@ The track configuration input for cnbData could be an Excel file or Google Sheet
 ### Start with an Example
 [Example Input: Google sheet](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077)
 
-For easy start, you could download it as an excel file and named it as `cnb.xlsx`.
+For easy start, you could download it as an excel file and named it as `nucle.xlsx`.
 Then you can run the command below.
 
-`cnbData start -i cnb.xlsx`
+`nucleserver start -i nucle.xlsx`
 
 You can also skip downloading and use **Google Sheet ID** directly like this.
-`cnbData start -i 1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM`
+`nucleserver start -i 1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM`
 
 > The **Google Sheet ID** is part of the url in your google sheet webpage. It is in blue background in the following demostration image.
-> ![Google Sheet ID Demo](https://nbrowser.github.io/image/google_sheet_id_demo.png)
+> ![Google Sheet ID Demo](https://nuclome.github.io/image/google_sheet_id_demo.png)
 
 When **first time** use `cnbData` with google sheet, it will prompt a link in terminal to ask for authorize permission, copy this link to browser and get back a token, then copy and paste this token to command terminal, a credential token will be stored in `[Your Home Dir]/.cnbData/credentials/gsheet.json`. 
 
@@ -77,11 +77,11 @@ When **first time** use `cnbData` with google sheet, it will prompt a link in te
 Two reserved sheets are required for start this data server.  
 
 One is “Config”,  which store the configuration variable values. Currently, `root` variable is the only variable needed for cnbData. It stores the root path for you store all track data files. It is designed for user conveniently migrating data between servers. All the URI in other sheets will be the relative path to `root` if their URI are not start with `http` or `https`.
-![Sheet Config Example](https://nbrowser.github.io/image/sheetConfig.png)
+![Sheet Config Example](https://nucleome.github.io/image/sheetConfig.png)
 
 The other sheet is “Index”, which stores the configuration information of all other sheets which are needed to use in cnbData server. The sheet titles which are not in Index sheet will be ignored by cnbData.
 
-![Sheet Index Example](https://nbrowser.github.io/image/sheetIndex.png)
+![Sheet Index Example](https://nucleome.github.io/image/sheetIndex.png)
 
 For track format data sheet, if using four columns, the columns name should be “shortLabel” , “uri,metaLink,longLabel”, and the corresponding column header such as A,B et al. should put into the 4th and 5th column.
 
@@ -90,18 +90,18 @@ For track format data sheet, if using four columns, the columns name should be �
 If using two columns, the column name could be any string user defined. Just filled in the column index into the fourth and the fifth column accordingly. In sheet "Index", those entries which Id starts with “#” will be ignored when loading.
 Column "Type" is a reserve entry for future data server. Currently, just use "track" in this column. It support bigWig, bigBed and .hic.
 #### Simple Name and URI
-![Sheet Data Example](https://nbrowser.github.io/image/sheetSimpleData.png)
+![Sheet Data Example](https://nucleome.github.io/image/sheetSimpleData.png)
 
 #### With Long Label and Meta Link
-![Sheet Data Example](https://nbrowser.github.io/image/sheetData4.png)
+![Sheet Data Example](https://nucleome.github.io/image/sheetData4.png)
 
 
-The localhost http://127.0.0.1:8611 is one of default servers in CNB. If user starts a data server in localhost and the port is default 8611, user doesn’t need to configure the server list. Just reload server content or add new genome browser panel after the local server start, the custom data will show in this genome browser config panel.
+The localhost http://127.0.0.1:8611 is one of default servers in Nucleome Browser. If user starts a data server in localhost and the port is default 8611, user doesn’t need to configure the server list. Just reload server content or add new genome browser panel after the local server start, the custom data will show in this genome browser config panel.
 
 
 If Data server is in other port or other web servers instead of localhost, user need to add the server into server lists. Open the CNB main website in your chrome browser. If user don't have a genome browser panel, please add a genome browser panel, the add button is in submenu of panels in the menu bar. Then, in this genome browser, then Click Config tracks → Click Config Servers → Input Server URI and any Id into table → Click Refresh Button to reload.
 
 
-![Config Servers](https://nbrowser.github.io/image/configServers.png)
+![Config Servers](https://nucleome.github.io/image/configServers.png)
 
 If user open a new genome browser panel , it will loading servers as last configuration. Servers configuration is stored as settings for this panel, if user duplicate this panel, the servers setting will be automatically copied too.
