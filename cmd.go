@@ -9,7 +9,7 @@ import (
 
 const (
 	VERSION = "0.1.1"
-	DIR     = ".cnbData"
+	DIR     = ".nucle"
 )
 
 func main() {
@@ -43,7 +43,7 @@ func main() {
 				},
 				cli.StringFlag{
 					Name:  "root,r",
-					Usage: "root directory, where store credentials and index files, defualt is $HOME/.cnbData",
+					Usage: "root directory, defualt is $HOME, in this directory, nucleserver will create a subdirectry .nucle to store credentials and index files",
 					Value: home,
 				},
 				cli.BoolFlag{
