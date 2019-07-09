@@ -21,9 +21,11 @@ User can either download the binary exectuable files we compiled, or compile thi
 Download Binary Exectuable Files in Linux, Windows and Mac OS without installation.
 Please download executable binary file
 
-- [Linux](https://vis.nucleome.org/static/dist/current/linux/nucleserver)
-- [Windows](https://vis.nucleome.org/static/dist/current/win64/nucleserver.exe)
-- [MacOS](https://vis.nucleome.org/static/dist/current/mac/nucleserver)
+Current Version Build: 06-09-2019
+
+- [Linux](https://vis.nucleome.org/static/nucleserver/current/linux/nucleserver)
+- [Windows](https://vis.nucleome.org/static/nucleserver/current/win64/nucleserver.exe)
+- [MacOS](https://vis.nucleome.org/static/nucleserver/current/mac/nucleserver)
 
 And change the mode of this file into executable.
 
@@ -97,7 +99,6 @@ Column "Type" is a reserve entry for future data server. Currently, just use "tr
 
 
 The localhost http://127.0.0.1:8611 is one of default servers in Nucleome Browser. If user starts a data server in localhost and the port is default 8611, user doesn’t need to configure the server list. Just reload server content or add new genome browser panel after the local server start, the custom data will show in this genome browser config panel.
-
 
 If Data server is in other port or other web servers instead of localhost, user need to add the server into server lists. Open the CNB main website in your chrome browser. If user don't have a genome browser panel, please add a genome browser panel, the add button is in submenu of panels in the menu bar. Then, in this genome browser, then Click Config tracks → Click Config Servers → Input Server URI and any Id into table → Click Refresh Button to reload.
 
