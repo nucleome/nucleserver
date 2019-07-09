@@ -22,13 +22,13 @@ User can either download the binary exectuable files we have compiled, or compil
 Download Binary Exectuable Files in Linux, Windows and Mac OS without installation.
 Please download executable binary file
 
-Current Version Build: 06-09-2019
+Current Build Version: 06-09-2019
 
 - [Linux](https://vis.nucleome.org/static/nucleserver/current/linux/nucleserver)
 - [Windows](https://vis.nucleome.org/static/nucleserver/current/win64/nucleserver.exe)
 - [MacOS](https://vis.nucleome.org/static/nucleserver/current/mac/nucleserver)
 
-And change the mode of this file into executable.
+Then change the mode of this file into executable.
 
 In Linux or Mac OS, this can be done in a terminal, using command `chmod`.
 
