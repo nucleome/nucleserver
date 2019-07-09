@@ -71,7 +71,7 @@ You can also skip downloading and use **Google Sheet ID** directly like this.
 > The **Google Sheet ID** is part of the url in your google sheet webpage. It is in blue background in the following demostration image.
 > ![Google Sheet ID Demo](https://nucleome.github.io/image/google_sheet_id_demo.png)
 
-When **first time** use `cnbData` with google sheet, it will prompt a link in terminal to ask for authorize permission, copy this link to browser and get back a token, then copy and paste this token to command terminal, a credential token will be stored in `[Your Home Dir]/.cnbData/credentials/gsheet.json`. 
+When **first time** use `nucleserver` with google sheet, it will prompt a link in terminal to ask for authorize permission, copy this link to browser and get back a token, then copy and paste this token to command terminal, a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
 
 
 ### Input Google Sheet or Xlsx Format
