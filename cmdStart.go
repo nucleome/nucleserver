@@ -54,5 +54,6 @@ func CmdStart(c *cli.Context) error {
 	} else {
 		s.StartDataServer(port, router, &corsOptions)
 	}
+
 	return nil
 }
