@@ -2,13 +2,14 @@ package main
 
 import (
 	"os"
+	"path/filepath"
 
 	"github.com/nimezhu/nbdata"
 	"github.com/urfave/cli"
 )
 
 const (
-	VERSION = "0.1.1"
+	VERSION = "0.1.2"
 	DIR     = ".nucle"
 )
 
@@ -16,7 +17,7 @@ func main() {
 	app := cli.NewApp()
 	app.Version = VERSION
 	app.Name = "Nucleome Data Server Tools"
-	app.Usage = "cnbData start -i [[google_sheet_id OR xls file]] -p [[port]]"
+	app.Usage = "nucleserver start -i [[google_sheet_id OR xls file]] -p [[port]]"
 	app.EnableBashCompletion = true //TODO
 	app.Flags = []cli.Flag{
 		cli.BoolFlag{
@@ -25,6 +26,7 @@ func main() {
 		},
 	}
 	home := nbdata.UserHomeDir()
+	root := filepath.Join(home, DIR)
 	app.Commands = []cli.Command{
 		{
 			Name:   "start",
@@ -43,8 +45,8 @@ func main() {
 				},
 				cli.StringFlag{
 					Name:  "root,r",
-					Usage: "root directory, defualt is $HOME, in this directory, nucleserver will create a subdirectry .nucle to store credentials and index files",
-					Value: home,
+					Usage: "root directory, default is $HOME/.nucle, in this directory store credentials and index files",
+					Value: root,
 				},
 				cli.BoolFlag{
 					Name:  "local,l",
