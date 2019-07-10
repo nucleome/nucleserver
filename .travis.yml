@@ -1,0 +1,5 @@
+ 
+language: go
+script: go get github.com/nucleome/nucleserver
+notifications:
+        email: false

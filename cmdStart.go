@@ -2,6 +2,7 @@ package main
 
 import (
 	"context"
+	"fmt"
 	"path"
 
 	"github.com/gorilla/mux"
@@ -42,6 +43,7 @@ func CmdStart(c *cli.Context) error {
 	}
 	router.Use(nbdata.Cred)
 	password := c.String("code")
+	fmt.Println("Using Ctrl-C to Quit Program")
 	if password != "" { //ADD PASSWORD CONTROL , MV IT TO WEB HTML
 		nbdata.InitCache(password)
 		router.HandleFunc("/signin", nbdata.Signin)
