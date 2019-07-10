@@ -3,10 +3,10 @@ package main
 import (
 	"context"
 	"fmt"
+	"log"
 	"os"
 	"os/signal"
 	"path/filepath"
-	"syscall"
 
 	"github.com/nimezhu/asheets"
 	"github.com/nimezhu/box"
@@ -20,18 +20,7 @@ func mkdir(p string) {
 		os.Mkdir(p, os.ModePerm)
 	}
 }
-func setExitSingal(s *box.Box) {
-	c := make(chan os.Signal, 2)
-	signal.Notify(c, os.Interrupt, syscall.SIGTERM)
-	go func() {
-		for sig := range c {
-			if sig == os.Interrupt || sig == syscall.SIGTERM {
-				s.Stop()
-				os.Exit(1)
-			}
-		}
-	}()
-}
+
 func CmdStart(c *cli.Context) error {
 	uri := c.String("input")
 	port := c.Int("port")
@@ -40,7 +29,6 @@ func CmdStart(c *cli.Context) error {
 	customCors := c.String("cors")
 
 	corsOptions := nbdata.GetCors(customCors)
-	// TODO Init Home and Directory
 	mkdir(root)
 
 	if nbdata.GuessURIType(uri) == "gsheet" {
@@ -52,9 +40,8 @@ func CmdStart(c *cli.Context) error {
 		}
 	}
 
-	s := box.NewBox("Nucleome Data Server", VERSION).Port(port).CorsOptions(&corsOptions)
+	s := box.NewBox("NucleServer", VERSION).Port(port).CorsOptions(&corsOptions)
 	router := s.GetRouter()
-	setExitSingal(s) //TODO
 
 	idxRoot := filepath.Join(root, "index")
 	mkdir(idxRoot)
@@ -65,20 +52,30 @@ func CmdStart(c *cli.Context) error {
 	}
 	router.Use(nbdata.Cred)
 	password := c.String("code")
-	fmt.Println("Using Ctrl-C to Quit Program") // STOP SHUT SIGNAL
-	if password != "" {                         //ADD PASSWORD CONTROL , MV IT TO WEB HTML
+
+	if password != "" {
 		nbdata.InitCache(password)
 		router.HandleFunc("/signin", nbdata.Signin)
 		router.HandleFunc("/signout", nbdata.Signout)
 		router.HandleFunc("/main.html", nbdata.MainHtml)
 		router.Use(nbdata.SecureMiddleware)
-		s.Start("global")
+		go s.Start("global")
 	} else if local {
-		s.Start("local")
+		go s.Start("local")
 	} else {
-		s.Start("global")
+		go s.Start("global")
 	}
-	// Graceful s.Stop
+
+	// Graceful Shutdown
+	sigc := make(chan os.Signal)
+	signal.Notify(sigc, os.Interrupt)
+	fmt.Println("Using Ctrl-C to Quit Program")
+	select {
+	case <-sigc:
+	}
+	s.Stop()
+
+	log.Println("Exiting...")
 
 	return nil
 }

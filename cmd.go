@@ -18,7 +18,7 @@ func main() {
 	app.Version = VERSION
 	app.Name = "Nucleome Data Server Tools"
 	app.Usage = "nucleserver start -i [[google_sheet_id OR xls file]] -p [[port]]"
-	app.EnableBashCompletion = true //TODO
+	app.EnableBashCompletion = true
 	app.Flags = []cli.Flag{
 		cli.BoolFlag{
 			Name:  "verbose",
