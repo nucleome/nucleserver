@@ -25,7 +25,7 @@ User can either download the binary exectuable files we have compiled, or compil
 Download Binary Exectuable Files in Linux, Windows and Mac OS without installation.
 Please download executable binary file
 
-Current Build Version: 06-09-2019
+Current Build Version: 06-10-2019  v0.1.2
 
 - [Linux](https://vis.nucleome.org/static/nucleserver/current/linux/nucleserver)
 - [Windows](https://vis.nucleome.org/static/nucleserver/current/win64/nucleserver.exe)
@@ -95,7 +95,7 @@ For track format data sheet, if using four columns, the columns name should be �
 
  
 If using two columns, the column name could be any string user defined. Just filled in the column index into the fourth and the fifth column accordingly. In sheet "Index", those entries which Id starts with “#” will be ignored when loading.
-Column "Type" is a reserve entry for future data server. Currently, just use "track" in this column. It support bigWig, bigBed and .hic.
+Column "Type" is a reserve entry for future data server. Currently, just use "track" in this column. It support bigWig, bigBed and .hic format files.
 #### Simple Name and URI
 ![Sheet Data Example](https://nucleome.github.io/image/sheetSimpleData.png)
 
