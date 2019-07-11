@@ -37,7 +37,9 @@ NucleServer is implemented in [GoLang](https://golang.org) ( version > 1.11 ).
 go get -u github.com/nucleome/nucleserver
 ```
 
-## Get Started with an Example File
+## Get Started with Examples
+
+### Quick Start
 
 [Example Input: Google sheet](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077)
 
@@ -55,7 +57,18 @@ Or skip downloading and use **Google Sheet ID** directly like this.
 
 > When **first time** use `nucleserver` with google sheet, it will prompt a link in terminal to ask for permission to access user's googls sheets, copy this link to browser and get back a token, then copy and paste the token to command terminal, a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
 
-After the data service is ready. Open [Nucleome Browser](https://vis.nucleome.org) in your web browser. 
+After the data service is ready. Open [Nucleome Browser](https://vis.nucleome.org) in your web browser. You should be able to browsing MTA1 ChIPSeq narrow peaks from ENCODE project. However, the bigBed data is not downloaded to your computer yet. NucleServer fetch index from ENCODE http web link and store the index, which is average one percent data file size in `[Your Home Dir]/.nucle/index`. When you browsing genome, NucleServer will fetch the corresponding data from ENCODE each time. 
+
+### Local Files
+Next step, we would like to demonstrate how to start a data service with local files.
+
+[Example Input Template](https://docs.google.com/spreadsheets/d/1gdK9L2DuJ7hln1ouLy8pQcvX6Fbrm6EUv28Al7ivmKw/edit?usp=sharing)
+
+Change root variable to your home directory in Config sheet.
+Download this [MTA1 ChIPSeq narrow peaks bigBed](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) file from ENCODE to a directory, for example `~/Downloads`.
+
+
+
 
 
 
@@ -115,3 +128,15 @@ If user don't have a genome browser panel, please add a genome browser panel, th
 ![Config Servers](https://nucleome.github.io/image/configServers.png)
 
 If user open a new genome browser panel , it will loading servers as last configuration. Servers configuration is stored as settings for this panel, if user duplicate this panel, the servers setting will be automatically copied too.
+
+
+## Host data for community in "HTTPS"
+
+### Why we need https
+
+### Solution: Reverse Proxy
+
+
+## Host data with password protection
+
+
