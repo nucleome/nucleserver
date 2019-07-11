@@ -140,9 +140,12 @@ If user open a new genome browser panel , it will loading servers as last config
 ### Solution: Reverse Proxy
 A Reverse Proxy implemented in GoLang [Traefik](https://traefik.io/) is recommended for convert local data service to https global data service. 
 
+
 ### Using Reverse Proxy to host more data services in same domain
 
+### Build Entry to A Nucleome Browser with customized data services. 
 
-## Host private data with password protection (Experimental)
+
+## Host private data in internet with password protection (Experimental)
 
 
