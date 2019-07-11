@@ -1,4 +1,4 @@
-# Nucleome Server 
+# NucleServer 
 [![Build Status](https://travis-ci.org/nucleome/nucleserver.svg?branch=master)](https://travis-ci.org/nucleome/nucleserver)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nucleome/nucleserver)](https://goreportcard.com/report/github.com/nucleome/nucleserver)
 [![Licenses](https://img.shields.io/badge/license-bsd-orange.svg)](https://opensource.org/licenses/BSD-3-Clause)
@@ -6,7 +6,7 @@
 
 [*NucleServer*](http://doc.nucleome.org/data/server) is a command line tool for users to start a [*Nucleome Browser*](https://vis.nucleome.org) data service in local or remote servers to host their multi-resolution genome related data files, such as [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html) and [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx). 
 
-If you are looking a GUI tool to host your bigWig, bigBed and .hic data files in local computer, please use this tool [*NucleData*](https://github.com/nucleome/nucledata). 
+If you are looking a GUI tool to host these files in local computer, please use this tool [*NucleData*](https://github.com/nucleome/nucledata). 
 
 
 ## Install
@@ -43,7 +43,7 @@ go get -u github.com/nucleome/nucleserver
 
 [Example Input: Google sheet](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077)
 
-For a quick start, user could download the Google Sheet above as an excel file and named it as `nucle.xlsx`.
+For a quick start, please download the Google Sheet above as an excel file and named it as `nucle.xlsx`.
 Then run the command below in your local computer.
 
 `nucleserver start -i nucle.xlsx`
@@ -52,23 +52,27 @@ Or skip downloading and use **Google Sheet ID** directly like this.
 
 `nucleserver start -i 1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM`
 
-> The **Google Sheet ID** is part of the url in your google sheet webpage. It is in blue background in the following demostration image.
+> The **Google Sheet ID** is part of the url in the google sheet webpage. It is in blue background in the following demostration image.
 > ![Google Sheet ID Demo](https://nucleome.github.io/image/google_sheet_id_demo.png)
 
-> When **first time** use `nucleserver` with google sheet, it will prompt a link in terminal to ask for permission to access user's googls sheets, copy this link to browser and get back a token, then copy and paste the token to command terminal, a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
+> When **first time** use `nucleserver` with google sheet, it will prompt a link in terminal to ask for permission to access user's Google Sheets, copy this link to browser and get back a token, then copy and paste the token to the command terminal, a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
 
 After the data service is ready. Open [Nucleome Browser](https://vis.nucleome.org) in your web browser. You should be able to browsing MTA1 ChIPSeq narrow peaks from ENCODE project. However, the bigBed data is not downloaded to your computer yet. NucleServer fetch index from ENCODE http web link and store the index, which is average one percent data file size in `[Your Home Dir]/.nucle/index`. When you browsing genome, NucleServer will fetch the corresponding data from ENCODE each time. 
 
 ### Local Files
-Next step, we would like to demonstrate how to start a data service with local files.
 
-[Example Input Template](https://docs.google.com/spreadsheets/d/1gdK9L2DuJ7hln1ouLy8pQcvX6Fbrm6EUv28Al7ivmKw/edit?usp=sharing)
+We would like to demonstrate how to start a data service with local files.
 
-Change root variable to your home directory in Config sheet.
-Download this [MTA1 ChIPSeq narrow peaks bigBed](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) file from ENCODE to a directory, for example `~/Downloads`.
+- Download this example file [MTA1 ChIPSeq narrow peaks bigBed](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) from ENCODE to a directory, for example `~/Downloads`.
+- Open the [Example Input Template](https://docs.google.com/spreadsheets/d/1gdK9L2DuJ7hln1ouLy8pQcvX6Fbrm6EUv28Al7ivmKw/edit?usp=sharing) sheet. Download it 
+as an excel file and named it as `nucle.xlsx`.
+- Change root variable to your home directory such as `/home/yourusername` in Config sheet.
+- Change the uri of MTA1 entry in "ENCODE_ChIPSeq" sheet to the file relative path to root.
+Start nucleserver.
 
+`nucleserver start -i nucle.xlsx`
 
-
+This time you should be browsing MTA1 ChIPSeq narrow peaks and the file are stored in local drive.
 
 
 
@@ -107,8 +111,6 @@ The “Index” sheet stores the configuration information of all other sheets w
 
 For track format data sheet, if using four columns, the columns name should be “shortLabel” , “uri,metaLink,longLabel”, and the corresponding column header such as A,B et al. should put into the 4th and 5th column.
 
-
- 
 If using two columns, the column name could be any string user defined. Just filled in the column index into the fourth and the fifth column accordingly. In sheet "Index", those entries which Id starts with “#” will be ignored when loading.
 Column "Type" is a reserve entry for future data server. Currently, just use "track" in this column. It support bigWig, bigBed and .hic format files.
 #### Simple Name and URI
@@ -133,10 +135,14 @@ If user open a new genome browser panel , it will loading servers as last config
 ## Host data for community in "HTTPS"
 
 ### Why we need https
+*Nucleome Browser* in "HTTPS" would provide more functions than "HTTP", such as Progressive Web Application, using private Google Sheets or store sessions in Google Sheet. However, it only can fetch data service from "HTTPS" or localhost due to web security reason.
 
 ### Solution: Reverse Proxy
+A Reverse Proxy implemented in GoLang [Traefik](https://traefik.io/) is recommended for convert local data service to https global data service. 
+
+### Using Reverse Proxy to host more data services in same domain
 
 
-## Host data with password protection
+## Host private data with password protection (Experimental)
 
 
