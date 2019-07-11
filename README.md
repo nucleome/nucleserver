@@ -152,8 +152,13 @@ Easiest way is configure your panel and save as a session to your google sheet.
 Copy this saved session to a Google Sheet with shareable view link.
 The entry will be on the following link http(s)://vis.nucleome.org/v1/pub.html?sheetid=[your public google sheet id]
 
+## Alternative Way to provide public data 
+Provide a Google Sheet with public data web links. User can start a local service with this google sheet.  It would be even better if data hosters can provide tar file of pre build index files to download.
+
 ## Host private data in internet with password protection (Experimental)
-### 
+`nucleserver start -i nucle.xlsx -c password`
+
+http://yourwebsite:8611/main.html to sign in with `password`
 
 ## TODOs
 - Supporting Large Set Data Host
