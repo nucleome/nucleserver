@@ -17,7 +17,6 @@ User can either download the binary exectuable files we have compiled, or compil
 ### Download Binary Executable Files
  
 Download Binary Exectuable Files in Linux, Windows and Mac OS without installation.
-Please download executable binary file
 
 Current Build Version: 07-10-2019  v0.1.2
 
@@ -28,7 +27,7 @@ Current Build Version: 07-10-2019  v0.1.2
 Then change the mode of this file into executable. In Linux or Mac OS, this can be done in a terminal, using command `chmod`.
 
 ```shell
-chmod 755 nucleserver
+chmod +x nucleserver
 ```
 
 ### Alternativley, Compile From Source Code
@@ -132,7 +131,7 @@ If user don't have a genome browser panel, please add a genome browser panel, th
 If user open a new genome browser panel , it will loading servers as last configuration. Servers configuration is stored as settings for this panel, if user duplicate this panel, the servers setting will be automatically copied too.
 
 
-## Host data for community in "HTTPS"
+## Host public data for community in "HTTPS"
 
 ### Why we need https
 *Nucleome Browser* in "HTTPS" would provide more functions than "HTTP", such as Progressive Web Application, using private Google Sheets or store sessions in Google Sheet. However, it only can fetch data service from "HTTPS" or localhost due to web security reason.
@@ -140,15 +139,26 @@ If user open a new genome browser panel , it will loading servers as last config
 ### Solution: Reverse Proxy
 A Reverse Proxy implemented in GoLang [Traefik](https://traefik.io/) is recommended for convert local data service to https global data service. 
 
+[Nginx](https://www.nginx.com/) is also working. 
+
 
 ### Using Reverse Proxy to host more data services in same domain
+Nucleome Browser default data services are "/d/portal" and "https://127.0.0.1:8611".
+Nucleome Browser supports URL like "https://youdomain.com/path/to/dataservice". 
 
-### Build Entry to A Nucleome Browser with customized data services. 
 
+### Build an Entry to A Nucleome Browser with customized data services. 
+Easiest way is configure your panel and save as a session to your google sheet.
+Copy this saved session to a Google Sheet with shareable view link.
+The entry will be on the following link http(s)://vis.nucleome.org/v1/pub.html?sheetid=[your public google sheet id]
+
+## Alternative Way to provide public data 
+Provide a Google Sheet with public data web links. User can start a local service with this google sheet.  It would be even better if data hosters can provide tar file of pre build index files to download.
 
 ## Host private data in internet with password protection (Experimental)
+`nucleserver start -i nucle.xlsx -c password`
 
+http://yourwebsite:8611/main.html to sign in with `password`
 
 ## TODOs
-
-
+- Supporting Large Set Data Host
