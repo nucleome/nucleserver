@@ -18,7 +18,7 @@ User can either download the binary exectuable files we have compiled, or compil
  
 Download Binary Exectuable Files in Linux, Windows and Mac OS without installation.
 
-Current Build Version: 07-10-2019  v0.1.2
+Current Build Version: 07-22-2019  v0.1.4
 
 - [Linux](https://vis.nucleome.org/static/nucleserver/current/linux/nucleserver)
 - [Windows](https://vis.nucleome.org/static/nucleserver/current/win64/nucleserver.exe)
