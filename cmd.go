@@ -9,8 +9,10 @@ import (
 )
 
 const (
+	//VERSION : Version of NucleServer
 	VERSION = "0.1.4"
-	DIR     = ".nucle"
+	//DIR : Default Directory for NucleServer
+	DIR = ".nucle"
 )
 
 func main() {

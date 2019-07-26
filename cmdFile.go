@@ -35,6 +35,8 @@ func ls(dir string) []os.FileInfo {
 	file server support range.
 
 /* interface: ls dir and get/file */
+
+//CmdFile : subcommand to start a simple file server
 func CmdFile(c *cli.Context) {
 	root := c.String("root")
 	port := c.Int("port")

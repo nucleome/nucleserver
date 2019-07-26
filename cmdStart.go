@@ -21,6 +21,7 @@ func mkdir(p string) {
 	}
 }
 
+// CmdStart : subcommand to start a nucleome data server
 func CmdStart(c *cli.Context) error {
 	uri := c.String("input")
 	port := c.Int("port")
