@@ -3,6 +3,7 @@
 [![Go Report Card](https://goreportcard.com/badge/github.com/nucleome/nucleserver)](https://goreportcard.com/report/github.com/nucleome/nucleserver)
 [![Licenses](https://img.shields.io/badge/license-bsd-orange.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/nucleome/nucleserver)
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnucleome%2Fnucleserver.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnucleome%2Fnucleserver?ref=badge_shield)
 
 [*NucleServer*](http://doc.nucleome.org/data/server) is a command line tool for users to start a [*Nucleome Browser*](https://vis.nucleome.org) data service in local or remote servers to host their multi-resolution genome related data files, such as [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html) and [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx). 
 
@@ -162,3 +163,7 @@ http://yourwebsite:8611/main.html to sign in with `password`
 
 ## TODOs
 - Supporting Large Set Data Host
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fnucleome%2Fnucleserver.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fnucleome%2Fnucleserver?ref=badge_large)
