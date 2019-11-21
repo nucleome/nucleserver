@@ -86,9 +86,9 @@ nucleserver.exe start -i [google sheet id or excel file] -p [port default:8611]
 ### Config file
 
 The config file can either be an Excel file or a Google Sheets. The file must contain two sheets, namely "Config" and "Index".  
-- The “Config” sheet stores the configuration variable values. Currently, `root` variable is the only variable needed for NucleServer. It is the root path for you store all track data files. (As a result, user can easily migrating data between servers.) All the URI/PATH in other sheets will be relative to this `root`. The only exception is for URIs starting with `http` or `https`.You can also find an example in this [screenshot](https://nucleome.github.io/image/sheetConfig.png)
-- The “Index” sheet stores the configuration information for organizing the track groups, each with a unique sheet title. The sheet titles not present in Index sheet will be ignored by the browser. The Name and Value columns define the corresponding columns in the track group sheet. Again, you can also find an example in this [screenshot](https://nucleome.github.io/image/sheetIndex.png)
-- The track group sheets provide information such as file location(uri), short label(shortLabel), long label(longLabel) and weblink(metaLink) for the tracks. As mentioned, these data files can be files in a local personal PC/servr or an web link pointing to a remote server. 
+- The “Config” sheet stores the configuration variable values. Currently, `root` variable is the only variable needed for NucleServer. It is the root path for you store all track data files. (As a result, user can easily migrating data between servers.) All the URI/PATH in other sheets will be relative to this `root`. The only exception is for URIs starting with `http` or `https`.You can also find an example in this [screenshot](https://nucleome.github.io/image/sheetConfig.png).
+- The “Index” sheet stores the configuration information for organizing the track groups, each with a unique sheet title. The sheet titles not present in Index sheet will be ignored by the browser. The Name and Value columns define the corresponding columns in the track group sheet. Again, you can also find an example in this [screenshot](https://nucleome.github.io/image/sheetIndex.png).
+- The track group sheets provide information such as file location(uri), short label(shortLabel), long label(longLabel) and weblink(metaLink) for the tracks. As mentioned, these data files can be files in a local personal PC/server or an web link pointing to a remote server. 
 - If the track group sheet contains four columns, the columns name should be "shortLabel", "uri", "metaLink" and "longLabel”. The corresponding column header in the "Index" sheet should be "A" and "B,C,D", so that they are defined accordlingly. [screenshot demo](https://nucleome.github.io/image/sheetData4.png) 
 
 - If using two columns, the column name can be any string user defined. Please just filled the "Index" sheet accordingly.[screenshot demo](https://nucleome.github.io/image/sheetSimpleData.png)
@@ -96,7 +96,7 @@ The config file can either be an Excel file or a Google Sheets. The file must co
 
 
 
-### Host Private and public data for community in "HTTPS"
+### Host private and public data for community in "HTTPS"
 We highly recommend the host servers to support "HTTPS", as it promote the browser's functionality in progressive web application, google based permission management and session storage. If the data is sensitive, you can also host it locally. It is then not accessible by other users or web application administrator. In addition, we also provides a simple password protection option (currently experimental) for user access data in internet. As demostrated below, user can add a password when starting the server.
 ```
 nucleserver start -i nucle.xlsx -c password
@@ -126,7 +126,7 @@ http(s)://vis.nucleome.org/v1/pub.html?sheetid=[your public google sheet id]
 If possible, we highly recommend users to provide a google sheet with publicly accessable web links. Then, other users can start a local service with them.  It would be even better if data hosters can index the data files and provide tar balls to download.
 
 ### Local index for remote data
-If acessing data from other servers such as ENCODE, NucleServer will fetch index from the web link and store them locally, which is on average 1% of the original data file in size. It is in `[Your Home Dir]/.nucle/index`. As a result, while browsing the genome, NucleServer will fetch the corresponding data from ENCODE each time based on the index. 
+If acessing data from other servers such as ENCODE, NucleServer will fetch index from the web link and store them locally, which is on average 1% of the original data file in size. It is stored in `[Your Home Dir]/.nucle/index`. As a result, while browsing the genome, NucleServer will fetch the corresponding data from ENCODE each time based on the index. 
 
 ## TODOs
 - Supporting Large Set Data Host
