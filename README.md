@@ -20,14 +20,16 @@ As a side note, please note that you'd have to grant the excutable the correct p
 chmod +x nucleserver
 ```
 The next step is to create an excel table for configurations. You can download a simple templete [Here](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077). Please note this google sheet can be saved in .xlsx format (now called nucle.xlsx in this demo). This excel table will point to a bigBed file host remotely by ENCODE through the Internet. If you'd like to host the data in your own server, you can download this [bigBed file](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) manually. And then, you can point to this local file by modifying the followings in the nucle.xlsx file.
-
-- In the Config sheet, define the root variable as a PATH to the data folder, such as `/home/yourusername`.
-- In the "ENCODE_ChIPSeq" sheet, change the URL to a relative PATH pointing to the bigBed file, such as `./ENCFF845IDA.bigBed`.
-
-Finally, with the correct config, the following command will start the data server.
+The following command will start the data server.
 ```
 nucleserver start -i nucle.xlsx
 ```
+If you would like to add local files.
+
+- In the Config sheet, define the root variable as a PATH to the data folder, such as `/home/yourusername`.
+- In the "ENCODE_ChIPSeq" sheet, you can use the URL directly or change the URL to a relative PATH pointing to the bigBed file, such as `./ENCFF845IDA.bigBed`, if you download it to your local drive. If you use the URL directly, NucleServer will only fetch the index and store it in "$HOME/.nucle/index".
+
+
 You many want to put the process in background using **screen** or nohup. The simple command using nohup is provided below.
 ```
 nohup nucleserver start -i nucle.xlsx &
@@ -55,7 +57,7 @@ go get -u github.com/nucleome/nucleserver
 ```
 Please note the dependent golang packages must be installed before compiling the code. The following command will install one of them.
 ```
-go get -u github.com/nimezhu/nbdata
+go get -u github.com/nucleome/nucledata
 ```
 After all packages installed, the following command will compile the code in the source folder.
 ```
