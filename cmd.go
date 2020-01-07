@@ -10,7 +10,7 @@ import (
 
 const (
 	//VERSION : Version of NucleServer
-	VERSION = "0.1.4"
+	VERSION = "0.1.5"
 	//DIR : Default Directory for NucleServer
 	DIR = ".nucle"
 )
@@ -36,28 +36,33 @@ func main() {
 			Action: CmdStart,
 			Flags: []cli.Flag{
 				&cli.StringFlag{
-					Name:  "input,i",
-					Usage: "input data xls/google sheet id",
-					Value: "",
+					Name:    "input",
+					Aliases: []string{"i"},
+					Usage:   "input data xls/google sheet id",
+					Value:   "",
 				},
 				&cli.IntFlag{
-					Name:  "port,p",
-					Usage: "data server port",
-					Value: 8611,
+					Name:    "port",
+					Aliases: []string{"p"},
+					Usage:   "data server port",
+					Value:   8611,
 				},
 				&cli.StringFlag{
-					Name:  "root,r",
-					Usage: "root directory, default is $HOME/.nucle, in this directory store credentials and index files",
-					Value: root,
+					Name:    "root",
+					Aliases: []string{"r"},
+					Usage:   "root directory, default is $HOME/.nucle, in this directory store credentials and index files",
+					Value:   root,
 				},
 				&cli.BoolFlag{
-					Name:  "local,l",
-					Usage: "serve 127.0.0.1 only",
+					Name:    "local",
+					Aliases: []string{"l"},
+					Usage:   "serve 127.0.0.1 only",
 				},
 				&cli.StringFlag{
-					Name:  "code,c",
-					Usage: "set password for server, override -l",
-					Value: "",
+					Name:    "code",
+					Aliases: []string{"c"},
+					Usage:   "set password for server, override -l",
+					Value:   "",
 				},
 				&cli.StringFlag{
 					Name:  "cors",
@@ -72,14 +77,16 @@ func main() {
 			Action: CmdFile,
 			Flags: []cli.Flag{
 				&cli.StringFlag{
-					Name:  "root,r", //TODO
-					Usage: "root directory",
-					Value: home,
+					Name:    "root", //TODO
+					Aliases: []string{"r"},
+					Usage:   "root directory",
+					Value:   home,
 				},
 				&cli.IntFlag{
-					Name:  "port,p",
-					Usage: "data server port",
-					Value: 8611,
+					Name:    "port",
+					Aliases: []string{"p"},
+					Usage:   "data server port",
+					Value:   8611,
 				},
 				&cli.StringFlag{
 					Name:  "cors",

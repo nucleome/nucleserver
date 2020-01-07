@@ -8,7 +8,7 @@
 
 
 ## Quick Start
-This is a quick demo on setting up a typical server with sample data. Please read the full manual for alternative settings not covered. To start, you can download the pre-compiled excutables from the main server (Current Build Version: 07-22-2019  v0.1.4). If they are not compatible to your machine, you can try to compile it from source (instruction in the "More functions and alternative ways" section).
+This is a quick demo on setting up a typical server with sample data. Please read the full manual for alternative settings not covered. To start, you can download the pre-compiled excutables from the main server (Current Build Version: 01-07-2020  v0.1.5). If they are not compatible to your machine, you can try to compile it from source (instruction in the "More functions and alternative ways" section).
 - [Linux](https://vis.nucleome.org/static/nucleserver/current/linux/nucleserver)
 - [MacOS](https://vis.nucleome.org/static/nucleserver/current/mac/nucleserver)
 - [Windows](https://vis.nucleome.org/static/nucleserver/current/win64/nucleserver.exe)
