@@ -50,7 +50,7 @@ If the data server location is differnt from the URL mentioned above, you'd have
 
 ## More functions and alternative ways
 This section covers more functions and alternative ways to set up the server, including permission management and password protection. 
-### Install by compling the source code
+### Install by compiling the source code
 Users can download the compiled binaries for Linux, Mac and Windows OS as described in the quick start. However, if the binary is not working or you are trying to install the most recent experimental version, you can alway compile from the source code. NucleServer is implemented in [GoLang](https://golang.org) ( version > 1.11 ) and hosted on Github. With the Golang environment installed, the source code can be cloned simply by the following command.
 ```
 go get -u github.com/nucleome/nucleserver
