@@ -12,7 +12,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/nimezhu/nbdata"
 	"github.com/rs/cors"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 var fileApp = nbdata.App{

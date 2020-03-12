@@ -5,12 +5,12 @@ import (
 	"path/filepath"
 
 	"github.com/nimezhu/nbdata"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 const (
 	//VERSION : Version of NucleServer
-	VERSION = "0.1.5"
+	VERSION = "0.1.6"
 	//DIR : Default Directory for NucleServer
 	DIR = ".nucle"
 )
