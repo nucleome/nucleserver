@@ -31,7 +31,7 @@ If you would like to add local files.
 - In the Config sheet, define the root variable as a PATH to the data folder, such as `/home/yourusername/trackdata`.
 - In the "ENCODE_ChIPSeq" sheet, you can use the URL directly or change the URL to a relative PATH pointing to the bigBed file, such as `./ENCFF845IDA.bigBed`, if you download it to your local drive. If you use the URL directly, NucleServer will only fetch the index and store it in "$HOME/.nucle/index".
 
-You many want to put the process in background using **screen** or nohup. The simple command using nohup is provided below.
+You many want to put the process in background, using command line such as nohup. The simple command using nohup is provided below.
 ```
 nohup nucleserver start -i nucle.xlsx &
 ```
