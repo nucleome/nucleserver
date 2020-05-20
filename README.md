@@ -4,7 +4,7 @@
 [![Licenses](https://img.shields.io/badge/license-bsd-orange.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/nucleome/nucleserver)
 
-[*NucleServer*](http://doc.nucleome.org/data/server) is a simple standalone tool to host an additional data server for [*Nucleome Browser*](https://vis.nucleome.org). A typical usage is to host a set of cumtomized genome data files that is not on the default server, such as additional genome tracks in [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html) and [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx) formats. To facilitate users with limited commandline experience, we also implemented an simple GUI called [*NucleData*](https://github.com/nucleome/nucledata). However, it's only working for setting up a **local server** on a personal PC for now.
+[*NucleServer*](http://doc.nucleome.org/data/server) is a simple standalone tool to host a data service for [*Nucleome Browser*](https://vis.nucleome.org). A typical usage is to host a set of cumtomized genome data files that is not on the default server, such as additional genome tracks in [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html) and [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx) formats. To facilitate users with limited commandline experience, we also implemented an simple GUI called [*NucleData*](https://github.com/nucleome/nucledata). However, it's only working for setting up a **local server** on a personal PC for now.
 
 
 ## Quick Start
