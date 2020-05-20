@@ -115,3 +115,10 @@ https://vis.nucleome.org/entry/?sheetid=[your public google sheet id]&title=[She
 ### Local index for remote data
 If acessing data from other servers such as ENCODE, NucleServer will fetch index from the web link and store them locally, which is on average 1% of the original data file in size. It is stored in `[Your Home Dir]/.nucle/index`. As a result, while browsing the genome, NucleServer will fetch the corresponding data from ENCODE each time based on the index. 
 
+### Host your data in servers without https
+If you host your data in servers without ssl certification.
+Either you can use "http://vis.nucleome.org" which supports fetch data from non-ssl web sites.
+Or you can make a tunnel between your server with localhost using the command below.
+```
+ssh -N -L 8611:localhost:8611 server
+```
