@@ -64,26 +64,19 @@ After all packages installed, the following command will compile the code in the
 go build
 ```
 
-### Using Google sheet for permission management
-In addition to the excel tables, user can also use a google sheet directly for configuration. We recommand this approach as it takes advantage of the google permission management and  it is an easier way to share the configuration to others with less headache. If you own or have access to a google sheet, the server can be started with its **Google Sheet ID**. 
-
-`nucleserver start -i 1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM`
-
-> The **Google Sheet ID** can be found as part of the url in the google sheet webpage. It is indicated by a blue background in this [demo image](https://nucleome.github.io/image/google_sheet_id_demo.png).
-
-If this is the **first time** you are using `nucleserver` with google sheet, it will firstly print a web link in terminal, asking for permissions. Please visit this link in a browser and grant the permissions. Google should provide you a token in respond. Please then enter this token in the terminal. As the result,  a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
-
-
-
-###  Start the server
-The command to start the server in Mac OS or Linux is the following.
+###  Start a server
+The command to start a server in Mac OS or Linux is the following.
 ```shell
 ./nucleserver start -i [google sheet id or excel file] -p [port default:8611]
 ```
-The command to start the server in Windows is the following.
+The command to start a server in Windows is the following.
 ```shell
 nucleserver.exe start -i [google sheet id or excel file] -p [port default:8611]
 ```
+
+> The **Google Sheet ID** can be found as part of the url in the google sheet webpage. It is indicated by a blue background in this [demo image](https://nucleome.github.io/image/google_sheet_id_demo.png).
+
+> If this is the **first time** you are using `nucleserver` with google sheet, it will firstly print a web link in terminal, asking for permissions. Please visit this link in a browser and grant the permissions. Google should provide you a token in respond. Please then enter this token in the terminal. As the result,  a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
 
 ### Config file
 
