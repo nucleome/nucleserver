@@ -43,7 +43,7 @@ http://127.0.0.1:8611
 
 If the data server location is differnt from the URL mentioned above, you'd have to add it manually to [Nucleome Browser](https://vis.nucleome.org).  
 > If you don't have a genome browser panel to start with, please add one at first. The add button is in submenu of panels in the menu bar. After clicking it, please follow this little guide: "Click Config tracks → Click Config Servers → Input Server URI and any Id you'd like into table → Click Refresh Button to reload". 
-This ![screenshot](https://nucleome.github.io/image/configServers.png) shows the config window.
+![screenshot](https://nucleome.github.io/image/configServers.png) 
 
 > If you open a new genome browser panel, it will automatically copy the previous configurations. 
 
@@ -64,19 +64,24 @@ The command to start a server in Windows is the following.
 nucleserver.exe start -i [google sheet id or excel file] -p [port default:8611]
 ```
 
-> The **Google Sheet ID** can be found as part of the url in the google sheet webpage. It is indicated by a blue background in this [demo image](https://nucleome.github.io/image/google_sheet_id_demo.png).
+> The **Google Sheet ID** can be found as part of the url in the google sheet webpage. It is indicated by a blue background in the following screenshot.
+![demo image](https://nucleome.github.io/image/google_sheet_id_demo.png).
 
 > If this is the **first time** you are using `nucleserver` with google sheet, it will firstly print a web link in terminal, asking for permissions. Please visit this link in a browser and grant the permissions. Google should provide you a token in respond. Please then enter this token in the terminal. As the result,  a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
 
 ## Config input file
 
 A config input file can either be an Excel file or a Google Sheets. The file must contain two sheets, namely "Config" and "Index".  
-- The “Config” sheet stores the configuration variable values. Currently, `root` variable is the only variable needed for NucleServer. It is the root path for you store all track data files. (As a result, user can easily migrating data between servers.) All the URI/PATH in other sheets will be relative to this `root`. The only exception is for URIs starting with `http` or `https`.You can also find an example in this [screenshot](https://nucleome.github.io/image/sheetConfig.png).
-- The “Index” sheet stores the configuration information for organizing the track groups, each with a unique sheet title. The sheet titles not present in Index sheet will be ignored by the browser. The Name and Value columns define the corresponding columns in the track group sheet. Again, you can also find an example in this [screenshot](https://nucleome.github.io/image/sheetIndex.png).
+- The “Config” sheet stores the configuration variable values. Currently, `root` variable is the only variable needed for NucleServer. It is the root path for you store all track data files. (As a result, user can easily migrating data between servers.) All the URI/PATH in other sheets will be relative to this `root`. The only exception is for URIs starting with `http` or `https`.
+![screenshot](https://nucleome.github.io/image/sheetConfig.png).
+- The “Index” sheet stores the configuration information for organizing the track groups, each with a unique sheet title. The sheet titles not present in Index sheet will be ignored by the browser. The Name and Value columns define the corresponding columns in the track group sheet. 
+![screenshot](https://nucleome.github.io/image/sheetIndex.png).
 - The track group sheets provide information such as file location(uri), short label(shortLabel), long label(longLabel) and weblink(metaLink) for the tracks. As mentioned, these data files can be files in a local personal PC/server or an web link pointing to a remote server. 
-- If the track group sheet contains four columns, the columns name should be "shortLabel", "uri", "metaLink" and "longLabel”. The corresponding column header in the "Index" sheet should be "A" and "B,C,D", so that they are defined accordlingly. [screenshot demo](https://nucleome.github.io/image/sheetData4.png) 
+- If the track group sheet contains four columns, the columns name should be "shortLabel", "uri", "metaLink" and "longLabel”. The corresponding column header in the "Index" sheet should be "A" and "B,C,D", so that they are defined accordlingly. 
+![screenshot demo](https://nucleome.github.io/image/sheetData4.png) 
 
-- If using two columns, the column name can be any string user defined. Please just filled the "Index" sheet accordingly.[screenshot demo](https://nucleome.github.io/image/sheetSimpleData.png)
+- If using two columns, the column name can be any string user defined. Please just filled the "Index" sheet accordingly.
+![screenshot demo](https://nucleome.github.io/image/sheetSimpleData.png)
 > In sheet "Index", those entries which Id starts with “#” will be ignored when loading. Column "Type" is designed for future data type. Currently, please just use "track" in this column. It support bigWig, bigBed and .hic format files.
 
 
