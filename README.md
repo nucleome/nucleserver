@@ -15,11 +15,12 @@ This is a quick demo on setting up a typical server with sample data. To start, 
 
 > If you are using Windows and not familiar with runnning command line tool in Windows, please read [this article](https://www.computerhope.com/issues/chusedos.htm) first. Then,you can run `nucleserver` as a command line tool in terminal.
 
-> As a side note, please note that you'd have to grant the excutable the correct permission. In linux/Mac, this can be done with the following shell command. 
-> ``` chmod +x nucleserver ```
+> As a side note, please note that you'd have to grant the excutable the correct permission. In linux/Mac, this can be done with the command ``` chmod +x nucleserver ```.
+
 The next step is to create an excel table for configurations. You can download a simple template [Here](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077). 
 Please note this google sheet can be saved in .xlsx format (now called nucle.xlsx in this demo). 
-This excel table will point to a bigBed file host remotely by ENCODE through the Internet. If you'd like to host the data in your own server, you can download this [bigBed file](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) manually. 
+This excel table will point to a bigBed file host remotely by ENCODE through the Internet. 
+If you'd like to host the data in your own server, you can download this [bigBed file](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) manually. 
 And then, you can point to this local file by modifying the followings in the nucle.xlsx file.
 The following command will start the data server.
 ```
@@ -29,7 +30,6 @@ If you would like to add local files.
 
 - In the Config sheet, define the root variable as a PATH to the data folder, such as `/home/yourusername/trackdata`.
 - In the "ENCODE_ChIPSeq" sheet, you can use the URL directly or change the URL to a relative PATH pointing to the bigBed file, such as `./ENCFF845IDA.bigBed`, if you download it to your local drive. If you use the URL directly, NucleServer will only fetch the index and store it in "$HOME/.nucle/index".
-
 
 You many want to put the process in background using **screen** or nohup. The simple command using nohup is provided below.
 ```
@@ -42,7 +42,8 @@ http://127.0.0.1:8611
 > Please note that you don't have add this particular URL. The localhost http://127.0.0.1:8611 is one of default servers in Nucleome Browser. If user starts a data server in localhost and the port is the default 8611, you can just reload server content or add new genome browser panel after the local server start, the custom data will show up in this genome browser config panel.
 
 If the data server location is differnt from the URL mentioned above, you'd have to add it manually to [Nucleome Browser](https://vis.nucleome.org).  
-> If you don't have a genome browser panel to start with, please add one at first. The add button is in submenu of panels in the menu bar. After clicking it, please follow this little guide: "Click Config tracks → Click Config Servers → Input Server URI and any Id you'd like into table → Click Refresh Button to reload". This [sceenshot](https://nucleome.github.io/image/configServers.png) shows the config window.
+> If you don't have a genome browser panel to start with, please add one at first. The add button is in submenu of panels in the menu bar. After clicking it, please follow this little guide: "Click Config tracks → Click Config Servers → Input Server URI and any Id you'd like into table → Click Refresh Button to reload". 
+This ![screenshot](https://nucleome.github.io/image/configServers.png) shows the config window.
 
 > If you open a new genome browser panel, it will automatically copy the previous configurations. 
 
