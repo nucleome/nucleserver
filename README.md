@@ -47,19 +47,19 @@ If the data server location is differnt from the URL mentioned above, you'd have
 
 > If you open a new genome browser panel, it will automatically copy the previous configurations. 
 
-## Install by compiling the source code
+## Install by compiling source code
 Users can download the compiled binaries for Linux, Mac and Windows OS as described in the quick start. 
 However, if the binary is not working or you are trying to install the most recent experimental version, you can alway compile from the source code. NucleServer is implemented in [GoLang](https://golang.org) ( version > 1.11 ) and hosted on Github. With the Golang environment installed, the source code can be cloned simply by the following command.
 ```
 go get -u github.com/nucleome/nucleserver
 ```
 
-##  Start a server
-The command to start a server in Mac OS or Linux is the following.
+##  Start a data service
+The command to start a data service in Mac OS or Linux is the following.
 ```shell
 ./nucleserver start -i [google sheet id or excel file] -p [port default:8611]
 ```
-The command to start a server in Windows is the following.
+The command to start a data service in Windows is the following.
 ```shell
 nucleserver.exe start -i [google sheet id or excel file] -p [port default:8611]
 ```
