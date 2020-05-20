@@ -27,18 +27,7 @@ The following command will start the data server.
 nucleserver start -i nucle.xlsx
 ```
 
-Then open [Nucleome Browser](https://vis.nucleome.org/) to browse the bigBed data in Genome Browser Panel.
 
-
-If you would like to add local files.
-
-- In the Config sheet, define the root variable as a PATH to the data folder, such as `/home/yourusername/trackdata`.
-- In the "ENCODE_ChIPSeq" sheet, you can use the URL directly or change the URL to a relative PATH pointing to the bigBed file, such as `./ENCFF845IDA.bigBed`, if you download it to your local drive. If you use the URL directly, NucleServer will only fetch the index and store it in "$HOME/.nucle/index".
-
-You many want to put the process in background, using command line such as nohup. The simple command using nohup is provided below.
-```
-nohup nucleserver start -i nucle.xlsx &
-```
 If everthing goes fine, you should then be able to add this additional server to your browser. The URL can be the following if you are running the server at a local machine with the default 8611 port.
 ```
 http://127.0.0.1:8611
@@ -49,7 +38,7 @@ If the data server location is differnt from the URL mentioned above, you'd have
 > If you don't have a genome browser panel to start with, please add one at first. The add button is in submenu of panels in the menu bar. After clicking it, please follow this little guide: "Click Config tracks → Click Config Servers → Input Server URI and any Id you'd like into table → Click Refresh Button to reload". 
 ![screenshot](https://nucleome.github.io/image/configServers.png) 
 
-> If you open a new genome browser panel, it will automatically copy the previous configurations. 
+
 
 ## Install by compiling source code
 Users can download the compiled binaries for Linux, Mac and Windows OS as described in the quick start. 
@@ -67,7 +56,6 @@ The command to start a data service in Windows is the following.
 ```shell
 nucleserver.exe start -i [google sheet id or excel file] -p [port default:8611]
 ```
-
 > The **Google Sheet ID** can be found as part of the url in the google sheet webpage. It is indicated by a blue background in the following screenshot.
 ![demo image](https://nucleome.github.io/image/google_sheet_id_demo.png).
 
@@ -88,19 +76,31 @@ A config input file can either be an Excel file or a Google Sheets. The file mus
 ![screenshot demo](https://nucleome.github.io/image/sheetSimpleData.png)
 > In sheet "Index", those entries which Id starts with “#” will be ignored when loading. Column "Type" is designed for future data type. Currently, please just use "track" in this column. It support bigWig, bigBed and .hic format files.
 
+If you would like to add local files.
+
+- In the Config sheet, define the root variable as a PATH to the data folder, such as `/home/yourusername/trackdata`.
+- In the "ENCODE_ChIPSeq" sheet, you can use the URL directly or change the URL to a relative PATH pointing to the bigBed file, such as `./ENCFF845IDA.bigBed`, if you download it to your local drive. If you use the URL directly, NucleServer will only fetch the index and store it in "$HOME/.nucle/index".
+
 
 ## Other hints
-### Host private and public data for community in "HTTPS"
-We highly recommend the host servers to support "HTTPS", as it promote the browser's functionality in progressive web application, google based permission management and session storage. If the data is sensitive, you can also host it locally. It is then not accessible by other users or web application administrator. In addition, we also provides a simple password protection option (currently experimental) for user access data in internet. As demostrated below, user can add a password when starting the server.
+
+### Start a data service in background.
+You many want to put a data servic in background, using command line such as nohup. The simple command using nohup is provided below.
 ```
-nucleserver start -i nucle.xlsx -c password
+nohup nucleserver start -i [nucle.xlsx] &
+```
+
+### Host private and public data for community in "HTTPS"
+We highly recommend the host servers to support "HTTPS", as it promote the browser's functionality in progressive web application, google based permission management and session storage. If the data is sensitive, you can also host it locally. It is then not accessible by other users or web application administrator. In addition, we also provides a simple password protection option (currently experimental) for user access data in internet. As demonstrated below, user can add a password when starting the server.
+```
+nucleserver start -i [nucle.xlsx] -c password
 ```
 As an result, only users login with the password through the following webpage can access the hosted data.
 ```
 http://yourwebsite:8611/main.html
 ```
 ### Converting local data server to the public using reverse Proxy
-A Reverse Proxy implemented in GoLang [Traefik](https://traefik.io/) is recommended for convert local data service to https global data service.  [Nginx](https://www.nginx.com/) is also working here. 
+A Reverse Proxy implemented in GoLang [Traefik](https://traefik.io/) is recommended for convert local data services to a https global data service.  [Nginx](https://www.nginx.com/) is also working here. 
 
 
 ### Using Reverse Proxy to host more data services in same domain
