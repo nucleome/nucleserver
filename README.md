@@ -16,9 +16,7 @@ This is a quick demo on setting up a typical server with sample data. To start, 
 > If you are using Windows and not familiar with runnning command line tool in Windows, please read [this article](https://www.computerhope.com/issues/chusedos.htm) first. Then,you can run `nucleserver` as a command line tool in terminal.
 
 > As a side note, please note that you'd have to grant the excutable the correct permission. In linux/Mac, this can be done with the following shell command. 
-```
-chmod +x nucleserver
-```
+> ``` chmod +x nucleserver ```
 The next step is to create an excel table for configurations. You can download a simple template [Here](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077). 
 Please note this google sheet can be saved in .xlsx format (now called nucle.xlsx in this demo). 
 This excel table will point to a bigBed file host remotely by ENCODE through the Internet. If you'd like to host the data in your own server, you can download this [bigBed file](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) manually. 
