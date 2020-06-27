@@ -126,3 +126,7 @@ Or you can make a tunnel between your server with localhost using the command be
 ```
 ssh -N -L 8611:localhost:8611 server
 ```
+
+# Depedencies
+- fetch data from bigwig and bigbed files https://github.com/pbenner/gonetics
+- fetch data from tabix files github.com/brentp/bix
