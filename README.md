@@ -1,5 +1,6 @@
 # NucleServer 
 [![Build Status](https://travis-ci.org/nucleome/nucleserver.svg?branch=master)](https://travis-ci.org/nucleome/nucleserver)
+[![Releases](https://img.shields.io/github/release/nucleome/nucleserver.svg)](https://github.com/nucleome/nucleserver/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nucleome/nucleserver)](https://goreportcard.com/report/github.com/nucleome/nucleserver)
 [![Licenses](https://img.shields.io/badge/license-bsd-orange.svg)](https://opensource.org/licenses/BSD-3-Clause)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/nucleome/nucleserver)
@@ -8,10 +9,12 @@
 A typical usage is to host a set of cumtomized genome data files that is not on the default server, such as additional genome tracks in [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html), [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx) and [tabix](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3042176/) formats. 
 
 ## Quick Start
-This is a quick demo on setting up a typical server with sample data. To start, you can download the pre-compiled excutables from the main server (Current Build Version: 01-07-2020  v0.1.5). If they are not compatible to your machine, you can try to compile it from source.
-- [Linux](https://vis.nucleome.org/static/nucleserver/current/linux/nucleserver)
-- [MacOS](https://vis.nucleome.org/static/nucleserver/current/mac/nucleserver)
-- [Windows](https://vis.nucleome.org/static/nucleserver/current/win64/nucleserver.exe)
+This is a quick demo on setting up a typical server with sample data. 
+
+To start, you can download the pre-compiled executable files from [release](https://github.com/nucleome/nucleserver/releases) in this GitHub repository. 
+We provide pre-compiled files in Linux, Windows and Mac OS.
+If they are not compatible to your machine, you can try to compile it from source.
+
 
 > If you are using Windows and not familiar with runnning command line tool in Windows, please read [this article](https://www.computerhope.com/issues/chusedos.htm) first. Then,you can run `nucleserver` as a command line tool in terminal.
 
