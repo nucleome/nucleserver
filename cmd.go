@@ -10,7 +10,7 @@ import (
 
 const (
 	//VERSION : Version of NucleServer
-	VERSION = "0.1.6"
+	VERSION = "0.1.7"
 	//DIR : Default Directory for NucleServer
 	DIR = ".nucle"
 )
@@ -94,6 +94,12 @@ func main() {
 					Value: "",
 				},
 			},
+		},
+		{
+			Name:   "update",
+			Usage:  "update self to the latest version in GitHub release",
+			Action: CmdUpdate,
+			Flags:  []cli.Flag{},
 		},
 	}
 	app.Run(os.Args)
