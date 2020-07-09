@@ -2,7 +2,7 @@
 [![Build Status](https://travis-ci.org/nucleome/nucleserver.svg?branch=master)](https://travis-ci.org/nucleome/nucleserver)
 [![Releases](https://img.shields.io/github/release/nucleome/nucleserver.svg)](https://github.com/nucleome/nucleserver/releases)
 [![Go Report Card](https://goreportcard.com/badge/github.com/nucleome/nucleserver)](https://goreportcard.com/report/github.com/nucleome/nucleserver)
-[![Licenses](https://img.shields.io/badge/license-bsd-orange.svg)](https://opensource.org/licenses/BSD-3-Clause)
+[![Licenses](https://img.shields.io/badge/license-gpl3-orange.svg)](https://opensource.org/licenses/GPL-3.0)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/nucleome/nucleserver)
 
 [*NucleServer*](http://doc.nucleome.org/data/server) is a simple standalone tool to host a genomic data service for [*Nucleome Browser*](https://vis.nucleome.org). 
