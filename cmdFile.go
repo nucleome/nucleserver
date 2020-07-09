@@ -12,7 +12,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/nimezhu/nbdata"
 	"github.com/rs/cors"
-	"github.com/urfave/cli"
+	"github.com/urfave/cli/v2"
 )
 
 var fileApp = nbdata.App{
@@ -37,7 +37,7 @@ func ls(dir string) []os.FileInfo {
 /* interface: ls dir and get/file */
 
 //CmdFile : subcommand to start a simple file server
-func CmdFile(c *cli.Context) {
+func CmdFile(c *cli.Context) error {
 	root := c.String("root")
 	port := c.Int("port")
 	router := mux.NewRouter()
@@ -75,4 +75,5 @@ func CmdFile(c *cli.Context) {
 	if err != nil {
 		panic(err)
 	}
+	return err
 }
