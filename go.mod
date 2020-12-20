@@ -1,4 +1,4 @@
-module github.com/nbrowser/nucleserver
+module github.com/nucleome/nucleserver
 
 go 1.13
 
