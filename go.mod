@@ -7,7 +7,7 @@ require (
 	github.com/gorilla/mux v1.7.4
 	github.com/nimezhu/asheets v0.0.1
 	github.com/nimezhu/box v0.0.1
-	github.com/nimezhu/data v0.0.2
+	github.com/nimezhu/data v0.0.3
 	github.com/nimezhu/go.uuid v1.2.1 // indirect
 	github.com/nimezhu/indexed v0.0.6 // indirect
     github.com/nimezhu/nbdata v0.0.1
