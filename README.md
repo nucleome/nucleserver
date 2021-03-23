@@ -5,66 +5,65 @@
 [![Licenses](https://img.shields.io/badge/license-gpl3-orange.svg)](https://opensource.org/licenses/GPL-3.0)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/nucleome/nucleserver)
 
-[*NucleServer*](http://doc.nucleome.org/data/server) is a simple standalone tool to host a genomic data service for [*Nucleome Browser*](https://vis.nucleome.org). 
-A typical usage is to host a set of cumtomized genome data files that is not on the default server, such as additional genome tracks in [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html), [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx) and [tabix](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3042176/) formats. 
+[*NucleServer*](http://doc.nucleome.org/data/server) is a standalone tool to host a data service for [*Nucleome Browser*](https://vis.nucleome.org). You can use this tool to host either genomic data or 3D structural modeling data on a personal computer or data server. For genomic data, it supports common data types such as genome tracks in [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html), [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx), and [tabix](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3042176/) formats. For 3D structural modeling data, it supports customized [Nucle3D](https://github.com/nucleome/nucle3d) format. You also view the [documentation](https://nb-docs.readthedocs.io/en/latest/data_service.html) for more examples. 
 
 ## Quick Start
-This is a quick demo on setting up a typical server with sample data. 
+Below is a quick demo showing you how to set up a genomic data service with sample data. 
 
-To start, you can download the pre-compiled executable files from [release](https://github.com/nucleome/nucleserver/releases) in this GitHub repository. 
-We provide pre-compiled files in Linux, Windows and Mac OS.
-If they are not compatible to your machine, you can try to compile it from source.
+First, you need to download the pre-compiled executable files from [the latest release](https://github.com/nucleome/nucleserver/releases) in this GitHub repository. 
+We provide pre-compiled files in Linux, Windows, and Mac OS. 
+You can directly download the pre-compiled program based on your operating system. 
+If the program is not compatible with your machine, you can also try to compile it by cloning this repository.
 
+> TIPS: If you are using Windows and not familiar with running a command-line tool in Windows, please refer to [this article](https://www.computerhope.com/issues/chusedos.htm). If everything goes well, you should be able to run `nucleserver` as a command-line tool in the terminal.
 
-> If you are using Windows and not familiar with runnning command line tool in Windows, please read [this article](https://www.computerhope.com/issues/chusedos.htm) first. Then,you can run `nucleserver` as a command line tool in terminal.
+> TIPS: Please also note that you need to grant the correct permission to the program. In Linux/Mac, this can be done with the command ``` chmod +x nucleserver ```.
 
-> As a side note, please note that you'd have to grant the excutable the correct permission. In linux/Mac, this can be done with the command ``` chmod +x nucleserver ```.
+Second, you need to prepare an excel file for configuration. 
+For this quick demo, we have prepared this [template file](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077).
+You can download it and save it with .xlsx as the suffix of the file (let's name in nucle.xlsx in this demo).
+The content of this excel shows metatable pointing to a bigBed file host remotely by ENCODE on the Internet.
+You can also download the data in your own machine and modify the excel to reflect the correct file location in the datasheet (see below)
 
-The next step is to create an excel table for configurations. You can download a simple template [Here](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077). 
-Please note this google sheet can be saved in .xlsx format (now called nucle.xlsx in this demo). 
-This excel table will point to a bigBed file host remotely by ENCODE through the Internet. 
-If you'd like to host the data in your own server, you can download this [bigBed file](https://www.encodeproject.org/files/ENCFF845IDA/@@download/ENCFF845IDA.bigBed) manually. 
-And then, you can point to this local file by modifying the followings in the nucle.xlsx file.
-The following command will start the data server.
+Finally, you can start the data server using the following command: 
+
 ```
 nucleserver start -i nucle.xlsx
 ```
 
+If everthing goes well, you should see messages showing you datasheet has been added to a local data server. The URL of the data server in this case (i.e., local machine with a default 8611 port) is:
 
-If everthing goes fine, you should then be able to add this additional server to your browser. The URL can be the following if you are running the server at a local machine with the default 8611 port.
 ```
 http://127.0.0.1:8611
 ```
-> Please note that you don't have add this particular URL. The localhost http://127.0.0.1:8611 is one of default servers in Nucleome Browser. If user starts a data server in localhost and the port is the default 8611, you can just reload server content or add new genome browser panel after the local server start, the custom data will show up in this genome browser config panel.
 
-If the data server location is differnt from the URL mentioned above, you'd have to add it manually to [Nucleome Browser](https://vis.nucleome.org).  
-> If you don't have a genome browser panel to start with, please add one at first. The add button is in submenu of panels in the menu bar. After clicking it, please follow this little guide: "Click Config tracks → Click Config Servers → Input Server URI and any Id you'd like into table → Click Refresh Button to reload". 
+> TIPS: Please note that you don't have to add this particular URL (http://127.0.0.1:8611) to Nucelome Browser. This localhost URL is one of the default servers in Nucleome Browser. If you start a data server under this URL, you can just reload server content or add a new genome browser panel after the local server starts. Your custom data will automatically show up in this genome browser config panel. If the data server URL is differnt from the URL mentioned above, you would have to add it manually to [Nucleome Browser](https://vis.nucleome.org). Please see [the document](https://nb-docs.readthedocs.io/en/latest/data_service.html#genomic-data) for details. 
+> TIPS: If you do not know how to add a new genome browser panel, you can watch animation [here](https://nb-docs.readthedocs.io/en/latest/animation.html#panel-oraganization). Basically, in [Nucleome Browser](https://vis.nucleome.org), there is a plus button on the top menu bar. You can click it and select the genome browser panel. In a genome browser panel, you can then config data service using the configuration interface. 
+
 ![screenshot](https://nucleome.github.io/image/configServers.png) 
 
-
-
 ## Install by compiling source code
-Users can download the compiled binaries for Linux, Mac and Windows OS as described in the quick start. 
-However, if the binary is not working or you are trying to install the most recent experimental version, you can alway compile from the source code. NucleServer is implemented in [GoLang](https://golang.org) ( version > 1.11 ) and hosted on Github. With the Golang environment installed, the source code can be cloned simply by the following command.
+If the binary is not working for you or you want to install the latest experimental version, you can also compile from the source code. 
+NucleServer is implemented in [GoLang](https://golang.org) ( version > 1.11 ) and hosted on Github. 
+With the Golang environment installed, the source code can be cloned simply by the following command.
 ```
 go get -u github.com/nucleome/nucleserver
 ```
 
 ##  Start a data service
-The command to start a data service in Mac OS or Linux is the following.
+The following command is used to start a data service in Mac OS or Linux:
 ```shell
 ./nucleserver start -i [google sheet id or excel file] -p [port default:8611]
 ```
-The command to start a data service in Windows is the following.
+Thhis command to start a data service in Windows:
 ```shell
 nucleserver.exe start -i [google sheet id or excel file] -p [port default:8611]
 ```
-> The **Google Sheet ID** can be found as part of the url in the google sheet webpage. It is indicated by a blue background in the following screenshot.
+> TIPS: The **Google Sheet ID** can be found as part of the URL in the Google Sheets webpage. It is shown with a blue background in the following screenshot.
 ![demo image](https://nucleome.github.io/image/google_sheet_id_demo.png).
+> TIPS: If this is the **first time** you run `nucleserver` with a google sheet, the program will firstly print a web link in the terminal, asking you for permissions. Please visit the link by copying it into a web browser and grant the permissions following the instructions from Google. Google should provide you a token. Please then paste this token into the terminal. After the authorization step is done, a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
 
-> If this is the **first time** you are using `nucleserver` with google sheet, it will firstly print a web link in terminal, asking for permissions. Please visit this link in a browser and grant the permissions. Google should provide you a token in respond. Please then enter this token in the terminal. As the result,  a credential token will be stored in `[Your Home Dir]/.nucle/credentials/gsheet.json`. 
-
-## Config input file
+## Configuration excel file
 
 A config input file can either be an Excel file or a Google Sheets. The file must contain two sheets, namely "Config" and "Index".  
 - The “Config” sheet stores the configuration variable values. Currently, `root` variable is the only variable needed for NucleServer. It is the root path for you store all track data files. (As a result, user can easily migrating data between servers.) All the URI/PATH in other sheets will be relative to this `root`. The only exception is for URIs starting with `http` or `https`.
