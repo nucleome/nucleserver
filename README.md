@@ -37,7 +37,7 @@ nucleserver start -i nucle.xlsx
 
 If everthing goes well, you should see messages showing you datasheet has been added to a local data server (see the figure below).
 
-![demo_success](img/Nucleserver_success.png)
+![demo_success](img/Nucleserver_success.jpg)
 
 The URL of the data server in this case (i.e., local machine with a default 8611 port) is:
 
@@ -47,7 +47,7 @@ http://127.0.0.1:8611
 
 > TIP: Please note that you don't have to add this particular URL (http://127.0.0.1:8611) to Nucelome Browser. This localhost URL is one of the default servers in Nucleome Browser. If you start a data server under this URL, you can just reload server content or add a new genome browser panel after the local server starts. Your custom data will automatically show up in this genome browser config panel. If the data server URL is differnt from the URL mentioned above, you would have to add it manually to [Nucleome Browser](https://vis.nucleome.org). Please see [the document](https://nb-docs.readthedocs.io/en/latest/data_service.html#genomic-data) for details.
 
-![Start a local data service](img/Load_data_server_manually.png)
+![Start a local data service](img/Load_data_server_manually.jpg)
 
 > TIP: If you do not know how to add a new genome browser panel, you can watch animation [here](https://nb-docs.readthedocs.io/en/latest/animation.html#panel-oraganization). Basically, in [Nucleome Browser](https://vis.nucleome.org), there is a **plus** button on the top menu bar. You can click it and select the genome browser panel. In a genome browser panel, you can then config data service using the configuration interface.
 
@@ -55,7 +55,7 @@ http://127.0.0.1:8611
 
 You should see two ChIP-seq tracks showing peaks in the genome browser as shown below:
 
-![demo_screenshot](img/Nucleserver_demo_view.png)
+![demo_screenshot](img/Nucleserver_demo_view.jpg)
 
 ## Install by compiling source code
 
