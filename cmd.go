@@ -10,7 +10,7 @@ import (
 
 const (
 	//VERSION : Version of NucleServer
-	VERSION = "0.2.3"
+	VERSION = "0.2.4"
 	//DIR : Default Directory for NucleServer
 	DIR = ".nucle"
 )
