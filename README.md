@@ -1,3 +1,4 @@
+![Nucleome Server](https://nucleome.github.io/img/ns.svg)
 # NucleServer
 
 [![Build Status](https://travis-ci.org/nucleome/nucleserver.svg?branch=master)](https://travis-ci.org/nucleome/nucleserver)
