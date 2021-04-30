@@ -117,6 +117,24 @@ The configuration file must contain two sheets, namely **\*Config** and **Index*
 
 ## Other hints
 
+### Create an excel file using python
+
+If there are a lot of datasheets, it may be wise to create an excel file using scripts. You can use the Python package pandas to add data frames into an excel file. For example, you can prepare separate files for each sheet in the excel file. You can then use the following script to add them to an excel file
+
+```
+import pandas as pd
+writer = pd.ExcelWriter(data_server.xlsx)
+# add config sheet
+config = pd.read_csv(config_file, sep = '\t', header = 0)
+config.to_excel(writer, sheet_name = 'Config', index = False)
+# add index sheet
+index = pd.read_csv(config_file, sep = '\t', header = 0)
+index.to_excel(writer, sheet_name = 'Index', index = False)
+# add data sheet
+data = pd.read_csv(sheet_file, sep = '\t', header = 0)
+data.to_excel(writer, sheet_name = 'Hi-C_data', index = False)
+```
+
 ### Put a data service in the background.
 
 You may want to put a data service in the background so that the data service remains running after the terminal is closed. There are many ways to keep processes running in the background. For example, you can use nohup as shown below.
