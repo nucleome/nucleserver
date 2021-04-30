@@ -7,7 +7,7 @@
 [![Licenses](https://img.shields.io/badge/license-gpl3-orange.svg)](https://opensource.org/licenses/GPL-3.0)
 [![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-blue.svg)](https://github.com/nucleome/nucleserver)
 
-[_NucleServer_](http://doc.nucleome.org/data/server) is a standalone tool to host a data service for [_Nucleome Browser_](https://vis.nucleome.org). You can use this tool to host either genomic data or 3D structural modeling data on a personal computer or a data server. For genomic data, it supports common data types such as genome tracks in format of [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html), [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx), or [tabix](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3042176/). For 3D structural modeling data, it supports customized [Nucle3D](https://github.com/nucleome/nucle3d) format. You read the [documentation](https://nb-docs.readthedocs.io/en/latest/data_service.html) for more examples.
+[_NucleServer_](http://doc.nucleome.org/data/server) is a standalone tool to host a data service for [_Nucleome Browser_](https://vis.nucleome.org). You can use this tool to host either genomic data or 3D structural modeling data on a personal computer or a data server. For genomic data, it supports common data types such as genome tracks in format of [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html), [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx), or [tabix](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3042176/). For 3D structural modeling data, it supports a customized [Nucle3D](https://github.com/nucleome/nucle3d) format. Read the [documentation](https://nb-docs.readthedocs.io/en/latest/data_service.html) for more examples.
 
 ## Quick Start
 
@@ -26,9 +26,9 @@ Second, you need to prepare an excel file for configuration.
 For this quick demo, we have prepared this [demo file](https://docs.google.com/spreadsheets/d/1nJwOozr4EL4gnx37hzF2Jmv-HPsgFMA9jN-lbUj1GvM/edit#gid=1744383077).
 You can download the Google Sheet and save it as an Excel file (let's name in nucle.xlsx from now on).
 We also provided this file (nucle.xlsx) in this repo.
-This Excel file contains several datasheets, such as configuration, data sheet pointing to several bigBed files host remotely by ENCODE on the Internet.
-Nucleserver can host not only data stored on the web but also data existed in local computers.
-The only important step is to provide the right uniform resource identifier (URI) of data so that nucleserver can successfully get the data (see below).
+This Excel file contains several datasheets, such as configuration, data sheets pointing to several bigBed files host remotely by ENCODE on the Internet.
+Nucleserver can host not only data stored on the web but also data that existed in local computers.
+The only important step is to provide the right uniform resource identifier (URI) of data so that the nucleserver can successfully get the data (see below).
 
 Finally, you can start the data server using the following command:
 
@@ -36,7 +36,7 @@ Finally, you can start the data server using the following command:
 nucleserver start -i nucle.xlsx
 ```
 
-If everthing goes well, you should see messages showing you datasheet has been added to a local data server (see the figure below).
+You should see messages showing you that datasheet has been added to a local data server (see the figure below).
 
 ![demo_success](img/Nucleserver_success.jpg)
 
@@ -46,7 +46,7 @@ The URL of the data server in this case (i.e., local machine with a default 8611
 http://127.0.0.1:8611
 ```
 
-> TIP: Please note that you don't have to add this particular URL (http://127.0.0.1:8611) to Nucelome Browser. This localhost URL is one of the default servers in Nucleome Browser. If you start a data server under this URL, you can just reload server content or add a new genome browser panel after the local server starts. Your custom data will automatically show up in this genome browser config panel. If the data server URL is differnt from the URL mentioned above, you would have to add it manually to [Nucleome Browser](https://vis.nucleome.org). Please see [the document](https://nb-docs.readthedocs.io/en/latest/data_service.html#genomic-data) for details.
+> TIP: Please note that you don't have to add this particular URL (http://127.0.0.1:8611) to Nucelome Browser. This localhost URL is one of the default servers in Nucleome Browser. If you start a data server under this URL, you can just reload server content or add a new genome browser panel after the local server starts. Your custom data will automatically show up in this genome browser config panel. If the data server URL is different from the URL mentioned above, you would have to add it manually to [Nucleome Browser](https://vis.nucleome.org). Please see [the document](https://nb-docs.readthedocs.io/en/latest/data_service.html#genomic-data) for details.
 
 ![Start a local data service](img/Load_data_server_manually.jpg)
 
@@ -70,7 +70,7 @@ go get -u github.com/nucleome/nucleserver
 
 ## Start a data service using a Google Sheet
 
-You can also use Google Sheet as the configuration file by replacing the path to local Excel file with a Google Sheet ID.
+You can also use Google Sheet as the configuration file by replacing the path to a local Excel file with a Google Sheet ID.
 
 In Mac OS or Linux, use the following command to start a data service.
 
@@ -102,22 +102,22 @@ The configuration file must contain two sheets, namely **\*Config** and **Index*
 
 ![Data sheet names](img/Data_sheet_name.png)
 
-- The **Config sheet** contains global parameters. The first row of the Config worksheet is the header and should be named as **Var** and **Value**, respectively. Currently, the root parameter under the column of Var is the only parameter required for NucleServer. This root parameter stores the root path for all genomic data files that are stored on the local computer. The purpose of this parameter is to help users conveniently migrate data between computers. For example, if all the files are stored in a folder under the path (/home/tom/project/genomic-data/), you can set the value of root in the column of Value as /home/john/project/genomic-data/. Later, when you fill in the worksheet of data, you can just put the filename of a data in the file link column (see below) and NucleServer and NucleData will know where to look for these files. It is possible that some of the data are stored on the cloud. In that case, you can just put the URLs of data in the worksheet of data. NucleServer and NucleData assume that file links of data do not start with **http or https** are all stored locally on your computer.
+- The **Config sheet** contains global parameters. The first row of the Config worksheet is the header and should be named as **Var** and **Value**, respectively. Currently, the root parameter under the column of Var is the only parameter required for NucleServer. This root parameter stores the root path for all genomic data files that are stored on the local computer. The purpose of this parameter is to help users conveniently migrate data between computers. For example, if all the files are stored in a folder under the path (/home/tom/project/genomic-data/), you can set the value of root in the column of Value as /home/john/project/genomic-data/. Later, when you fill in the worksheet of data, you can just put the filename of a data in the file link column (see below) and NucleServer and NucleData will know where to look for these files. Some of the data may be stored in the cloud. In that case, you can just put the URLs of data in the worksheet of data. NucleServer and NucleData assume that file links of data that do not start with **http or https** are all stored locally on your computer.
   ![Data sheet names](img/Data_sheet_config.png)
-- The **Index sheet** contains the info of all the Data Sheets. The meaning of each column is shown below. The first row of the Index sheet is the header. Other rows indicate data worksheets. The 1st column is the genome assembly of data. Nucleome Browser supports all the reference assembly provided by the UCSC genome browser. The genome assembly name should be in lowercase letters and all data in that data worksheet should from the same genome assembly. The 2nd column is the name of a specific data worksheet. The 3rd column is set for future features and currently not used (you can put ‘track’ here). The 4th and 5th columns indicate which columns in that data worksheet represent short labels of tracks and data URI, respectively.
+- The **Index sheet** contains the info of all the Data Sheets. The meaning of each column is shown below. The first row of the Index sheet is the header. Other rows indicate data worksheets. The 1st column is the genome assembly of data. Nucleome Browser supports all the reference assembly provided by the UCSC genome browser. The genome assembly name should be in lowercase letters and all data in that data worksheet should from the same genome assembly. The 2nd column is the name of a specific data worksheet. The 3rd column is set for future features and is currently not used (you can put ‘track’ here). The 4th and 5th columns indicate which columns in that data worksheet represent short labels of tracks and data URI, respectively.
   ![index sheet](img/Data_sheet_index_v3.png).
-- **Data sheet**: The 4th and 5th columns of the Index sheet tell nucleserver where to get the data and how to render them in the browser. There are two ways to configure this sheet: two-column format or four-column format. In both settings, the 4th column (the Name column in the figure) indicates the short label of a data track. The difference between the two settings is the 5th column of the Index sheet. In the two-column setting, the fifth column refers to the column-index of the file path (or URL) in the data worksheets (see the figure below). In the four-column setting, the fifth column refers to the column-index of the file path (or URL), URL of meta-information, and long label. Note that in the four-column setting, the order of the column-index must be the **file path**, **URL of meta-information**, and **long label**. The number or the order of columns in the datasheet can be arbitrary for each datasheet. Just make sure the order of column-index matches the expected order. For example, you can put file path in column G, URL of meta-information in column B, and long label in column A. Then you should put G, B, A in the 5th column of the Index sheet.
+- **Data sheet**: The 4th and 5th columns of the Index sheet tell the nucleserver where to get the data and how to render them in the browser. There are two ways to configure this sheet: two-column format or four-column format. In both settings, the 4th column (the Name column in the figure) indicates the short label of a data track. The difference between the two settings is the 5th column of the Index sheet. In the two-column setting, the fifth column refers to the column-index of the file path (or URL) in the data worksheets (see the figure below). In the four-column setting, the fifth column refers to the column-index of the file path (or URL), URL of meta-information, and long label. Note that in the four-column setting, the order of the column-index must be the **file path**, **URL of meta-information**, and **long label**. The number or the order of columns in the datasheet can be arbitrary for each datasheet. Just make sure the order of column-index matches the expected order. For example, you can put file path in column G, URL of meta-information in column B, and long label in column A. Then you should put G, B, A in the 5th column of the Index sheet.
   ![data sheet](img/Data_sheet_two-four_column.png)
 
 > TIP: If you have a lot of tracks, you should try to create the excel file using the program. For example, you can use pandas python to create an Excel file with multiple datasheets.
 
-> TIP: **file path** can point to a local file or a URL as shown in the Quick Start section. If it is a URL, nucleserver will download the index and store it in "$HOME/.nucle/index". When users navigate along the genome, nucleserver will fetch the data based on the index.
+> TIP: **file path** can point to a local file or a URL as shown in the Quick Start section. If it is a URL, the nucleserver will download the index and store it in "$HOME/.nucle/index". When users navigate along the genome, the nucleserver will fetch the data based on the index.
 
 > TIP: **URL of meta-information** can a web link so that this website will open when a user clicks the long label of track on the genome browser. If there is no external website for tracks, you can just put anything here.
 
 ## Other hints
 
-### Put a data service in background.
+### Put a data service in the background.
 
 You may want to put a data service in the background so that the data service remains running after the terminal is closed. There are many ways to keep processes running in the background. For example, you can use nohup as shown below.
 
@@ -125,9 +125,9 @@ You may want to put a data service in the background so that the data service re
 nohup nucleserver start -i [nucle.xlsx] &
 ```
 
-We also recommend [tmux](https://github.com/tmux/tmux), which has more features to manage background-processes.
+We also recommend [tmux](https://github.com/tmux/tmux), which has more features to manage background processes.
 
-### Re-start data service after crash
+### Re-start data service after a crash
 
 If you want to re-start the data service after it crashes you can use the following code. The start.sh is the script you want to re-start after it crashes (in our case, it would be nucleserver start ...)
 
@@ -162,14 +162,14 @@ ulimit -Sn
 
 ### Update nucleserver
 
-The easiest way to upgrade nucleserver is to the update command.
+The easiest way to upgrade the nucleserver is to the update command.
 
 ```
 # update nucleserver to the latest versiono
 ./nucleserver update
 ```
 
-### Host private and public data for community in "HTTPS"
+### Host private and public data for the community in "HTTPS"
 
 We highly recommend the host servers to support "HTTPS", as it promotes the browser's functionality in a progressive web application, google based permission management, and session storage. If the data is sensitive, you can also host it locally. It is then not accessible by other users or web application administrators. We also provide a simple password protection option (currently experimental) for user access to data on the internet. As demonstrated below, the user can add a password when starting the server.
 
@@ -196,7 +196,7 @@ ssh -N -L 8611:localhost:8611 server
 
 A Reverse Proxy implemented in GoLang [Traefik](https://traefik.io/) is recommended for convert local data services to an HTTPS global data service. [Nginx](https://www.nginx.com/) is also working here.
 
-### Using Reverse Proxy to host more data services in same domain
+### Using Reverse Proxy to host more data services in the same domain
 
 Nucleome Browser default data services are "/d/portal" (4DN public data on 4DN DCICI) and "https://127.0.0.1:8611".
 Nucleome Browser supports URL like "https://[youdomain]/path/to/dataservice".
@@ -204,7 +204,7 @@ Nucleome Browser supports URL like "https://[youdomain]/path/to/dataservice".
 ### Build an Entry to A Nucleome Browser with customized data services.
 
 The easiest way is to configure your panel and save it as a session to your Google Sheet.
-Copy the saved session to a Google Sheet with shareable view link.
+Copy the saved session to a Google Sheet with a shareable view link.
 The entry will be on the following link.
 
 ```
@@ -213,5 +213,5 @@ https://vis.nucleome.org/entry/?sheetid=[your public google sheet id]&title=[She
 
 # Depedencies
 
-- fetch data from bigwig and bigbed files https://github.com/pbenner/gonetics
+- fetch data from bigwig and bigBed files https://github.com/pbenner/gonetics
 - fetch data from tabix files github.com/brentp/bix
