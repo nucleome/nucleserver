@@ -133,6 +133,8 @@ index.to_excel(writer, sheet_name = 'Index', index = False)
 # add data sheet
 data = pd.read_csv(sheet_file, sep = '\t', header = 0)
 data.to_excel(writer, sheet_name = 'Hi-C_data', index = False)
+# add more data sheet
+writer.save()
 ```
 
 ### Put a data service in the background.
