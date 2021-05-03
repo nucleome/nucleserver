@@ -182,7 +182,7 @@ ulimit -Sn
 
 ### Update nucleserver
 
-The easiest way to upgrade the nucleserver is to the update command.
+The easiest way to upgrade the nucleserver is to use the update command.
 
 ```
 # update nucleserver to the latest versiono
