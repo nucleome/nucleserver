@@ -1,0 +1,8 @@
+# Release notes
+
+## Next
+* fix the bug of bigBed track (dense mode) do not show up when re-size the panel
+
+## v0.2.6 
+* fix the pointer bug when query hic matrix with missing data
+* update readme and documentation
