@@ -58,6 +58,8 @@ You should see two ChIP-seq tracks showing peaks in the genome browser as shown 
 
 ![demo_screenshot](img/Nucleserver_demo_view.jpg)
 
+> TIP: You must use the HTTPS version of Nucleome Browser (https://vis.nucleome.org) to load a local data service. The HTTP version will not work due to the limitation of cross-origin resource sharing (CORS) restriction. 
+
 ## Install by compiling source code
 
 If the binary is not working for you or you want to install the latest experimental version, you can also compile from the source code.
