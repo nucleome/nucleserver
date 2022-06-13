@@ -9,6 +9,10 @@
 
 [_NucleServer_](http://doc.nucleome.org/data/server) is a standalone tool to host a data service for [_Nucleome Browser_](https://vis.nucleome.org). You can use this tool to host either genomic data or 3D structural modeling data on a personal computer or a data server. For genomic data, it supports common data types such as genome tracks in format of [bigWig](https://genome.ucsc.edu/goldenpath/help/bigWig.html), [bigBed](https://genome.ucsc.edu/goldenpath/help/bigBed.html), [.hic](https://github.com/aidenlab/Juicebox/blob/master/HiC_format_v8.docx), or [tabix](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3042176/). For 3D structural modeling data, it supports a customized [Nucle3D](https://github.com/nucleome/nucle3d) format. Read the [documentation](https://nb-docs.readthedocs.io/en/latest/data_service.html) for more examples.
 
+## Tutotiral
+
+We provide a tutorial (text and video) with a demo dataset to help you set up a local data service and visualize tracks on Nucleome Browser. You can access this tutorial at [https://github.com/nucleome/Tutorial-SingeCellHiC](https://github.com/nucleome/Tutorial-SingeCellHiC).
+
 ## Quick Start
 
 Below is a quick demo showing you how to set up a genomic data service with sample data.
